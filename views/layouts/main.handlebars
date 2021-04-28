@@ -5,39 +5,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>myWORKOUTS</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <header id="header">
-      <div>
-      <nav class="nav">
-          <a href="/">Home</a>
-          <a href="/profile">Profile</a>
-        <!-- Conditionally rendering login or logout links -->
-        {{#if logged_in}}
-        <a id="logout" href="/">Logout</a>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-      </div>
-      <h1 class="title">myWORKOUTS</h1>
-    </header>
-    <main>
-      <!-- Rendering the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
 
-  <!-- Rendering script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+<body>
+  <div class="container">
+    <div class="flex-column justify-space-around">
+      <header id="header">
+        <div>
+          <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <!-- Conditionally rendering login or logout links -->
+            {{#if logged_in}}
+            <a id="logout" href="/">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+          </nav>
+        </div>
+        <h1 class="title">myWORKOUTS</h1>
+      </header>
+      <main>
+        <!-- Rendering the sub layout -->
+        {{{ body }}}
+      </main>
+      <footer>
+
+      </footer>
+    </div>
+
+    <!-- Rendering script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+  </div>
 </body>
 
 </html>
