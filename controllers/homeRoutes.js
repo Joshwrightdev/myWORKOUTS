@@ -7,6 +7,7 @@ const withAuth = require('../utils/auth');
 
 
 
+
 // TODO: Add the login route here (So when you go to localhost:3001/login it renders the login)
 
 
@@ -23,3 +24,4 @@ const withAuth = require('../utils/auth');
 
 
 
+module.exports = router;

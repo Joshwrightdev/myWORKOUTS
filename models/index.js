@@ -16,8 +16,8 @@ User.hasMany(WorkoutHistory, {
     onDelete: 'CASCADE'
 });
 
-WorkoutHistory.belongsToMany(User, {
-    foreignKey: 'user_id'
-});
+// WorkoutHistory.belongsToMany(User, {
+//     foreignKey: 'user_id'
+// });
 
 module.exports = { User, Workout, WorkoutHistory };
