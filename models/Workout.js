@@ -28,6 +28,9 @@ Workout.init(
         body_zone: {
             type: DataTypes.STRING,
         },
+        duration: {
+            type: DataTypes.INTEGER,
+        },
         owner_id: {
             type: DataTypes.INTEGER,
             references: {
