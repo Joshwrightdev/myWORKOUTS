@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>myWORKOUTS</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header id="header">
+      <div>
+      <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/profile">Profile</a>
+        <!-- Conditionally rendering login or logout links -->
+        {{#if logged_in}}
+        <a id="logout" href="/">Logout</a>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+      </div>
+      <h1 class="title">myWORKOUTS</h1>
+    </header>
+    <main>
+      <!-- Rendering the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Rendering script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
