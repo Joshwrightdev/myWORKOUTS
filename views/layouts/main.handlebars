@@ -38,20 +38,17 @@
         <div class="navcontainer">
           <nav>
             <!-- Conditionally rendering login or logout links -->
-            {{!-- {{#if logged_in}} --}}
-
-
-            <a class="btn" href="/"><i class="fas fa-home"></i>Home</a>
-            <a class="btn" href="/api/users/workouts"><i class="fas fa-running"></i>
-
+            {{#if loggedIn}}
+            <a class="navbtn" href="/"><i class="fas fa-home"></i>Home</a>
+            <a class="navbtn" href="/api/users/workouts"><i class="fas fa-running"></i>
               myWORKOUTS</a>
-            <a class="btn" id="logout" href="/"><i class="fab fa-angellist"></i>
+            <a class="navbtn" id="logout" href="/"><i class="fab fa-angellist"></i>
               Logout</a>
-            {{!-- {{else}} --}}
-            <a class="btn" href="/login"><i class="fas fa-sign-in-alt"></i>
+            {{else}}
+            <a class="navbtn" href="/login"><i class="fas fa-sign-in-alt"></i>
               Login</i>
               </span></a>
-            {{!-- {{/if}} --}}
+            {{/if}}
           </nav>
         </div>
         <h2>myWORKOUTS</h2>
@@ -66,9 +63,9 @@
     </div>
 
     <!-- Rendering script for logged in users only -->
-    {{!-- {{#if loggedIn}} --}}
+    {{#if loggedIn}}
     <script src="/js/logout.js"></script>
-    {{!-- {{/if}} --}}
+    {{/if}}
   </div>
 </body>
 
