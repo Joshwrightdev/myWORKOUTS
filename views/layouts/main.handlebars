@@ -22,9 +22,11 @@
         <div>
           <nav class="nav">
             <!-- Conditionally rendering login or logout links -->
-            {{!-- {{#if logged_in}} --}}
+            {{!-- {{#if loggedIn}} --}}
             <a href="/">Home</a>
-            <a href="/api/users/workouts">myWORKOUTS</a>
+            <a href="/api/users/workouts">My Workouts</a>
+            <a href="/">Browse Workouts</a>
+            <a href="/">Create Workout</a>
             <a id="logout" href="/">Logout</a>
             {{!-- {{else}} --}}
             <a href="/login">Login</a>
@@ -43,9 +45,9 @@
     </div>
 
     <!-- Rendering script for logged in users only -->
-    {{#if logged_in}}
+    {{!-- {{#if loggedIn}} --}}
     <script src="/js/logout.js"></script>
-    {{/if}}
+    {{!-- {{/if}} --}}
   </div>
 </body>
 
