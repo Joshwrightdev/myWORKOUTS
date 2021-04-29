@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Workout } = require("../../models");
 
 router.post("/", async (req, res) => {
   try {
@@ -59,9 +59,20 @@ router.post("/logout", (req, res) => {
 
 // If someone goes to api/users/workouts we'll render the my-workouts template.
 // ** WILL NEED TO UPDATE ONCE WE GET SOME DATA SO WE CAN PASS THAT DOWN TO THE MY-WORKOUTS TEMPLATE.
-router.get("/workouts", (req, res) => {
+router.get("/workouts", async (req, res) => {
   try {
+    const workoutData = await Workout.findAll({
+      where: {
+        owner_id: req.session.user_id
+      }
+    });
+
+    console.log(req.session.logged_in);
+    const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+
     res.render("my-workouts", {
+      workouts,
+      loggedIn: req.session.logged_in,
     })
   } catch (err) {
     res.status(400).json(err);
