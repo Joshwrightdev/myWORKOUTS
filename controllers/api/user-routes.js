@@ -61,13 +61,18 @@ router.post("/logout", (req, res) => {
 // ** WILL NEED TO UPDATE ONCE WE GET SOME DATA SO WE CAN PASS THAT DOWN TO THE MY-WORKOUTS TEMPLATE.
 router.get("/workouts", async (req, res) => {
   try {
-    const workoutData = await Workout.findAll();
+    const workoutData = await Workout.findAll({
+      where: {
+        owner_id: req.session.user_id
+      }
+    });
+
+    console.log(req.session.logged_in);
     const workouts = workoutData.map((workout) => workout.get({ plain: true }));
 
-    console.log(workouts);
-
     res.render("my-workouts", {
-      workouts
+      workouts,
+      loggedIn: req.session.logged_in,
     })
   } catch (err) {
     res.status(400).json(err);
