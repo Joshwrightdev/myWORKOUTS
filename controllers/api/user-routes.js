@@ -61,6 +61,12 @@ router.post("/logout", (req, res) => {
 // ** WILL NEED TO UPDATE ONCE WE GET SOME DATA SO WE CAN PASS THAT DOWN TO THE MY-WORKOUTS TEMPLATE.
 router.get("/workouts", async (req, res) => {
   try {
+
+    if (req.session.logged_in !== true) {
+      res.redirect('/login');
+      return;
+    };
+
     const workoutData = await Workout.findAll({
       where: {
         owner_id: req.session.user_id
