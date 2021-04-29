@@ -57,4 +57,15 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// If someone goes to api/users/workouts we'll render the my-workouts template.
+// ** WILL NEED TO UPDATE ONCE WE GET SOME DATA SO WE CAN PASS THAT DOWN TO THE MY-WORKOUTS TEMPLATE.
+router.get("/workouts", (req, res) => {
+  try {
+    res.render("my-workouts", {
+    })
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
