@@ -1,35 +1,53 @@
+console.log("hello world");
+const title = document.getElementById("workout-title");
+const description = document.getElementById("workout-description");
+const rating = document.getElementById("workout-rating");
+const workout_type = document.getElementById("workout-type");
+const body_zone = document.getElementById("body-zone");
+const duration = document.getElementById("workout-duration");
+const owner_id = document.getElementById("owner-id");
+const submitButton = document.getElementById("submit-button");
+
 const newFormHandler = async (event) => {
   event.preventDefault();
-
-  const title = document.getElementById("workout-title").value.trim();
-  const desc = document.getElementById("workout-description").value.trim();
-  const rating = document.getElementById("workout-rating").value.trim();
-  const type = document.getElementById("workout-type").value.trim();
-  const zone = document.getElementById("body-zone").value.trim();
-  const duration = document.getElementById("workout-duration").value.trim();
-  const owner = document.getElementById("owner-id").value.trim();
-
-  if (title && desc && rating && type && zone && duration && owner) {
-    const response = await fetch("/createworkout", {
+  const bodyTitle = title.value;
+  const bodyDescription = description.value;
+  const bodyRating = rating.value;
+  const bodyWorkoutType = workout_type.value;
+  const bodyBZone = body_zone.value;
+  const bodyDuration = duration.value;
+  const bodyOwnerID = owner_id.value;
+  if (
+    title.value &&
+    description.value &&
+    rating.value &&
+    workout_type.value &&
+    body_zone.value &&
+    duration.value &&
+    owner_id.value
+  ) {
+    const response = await fetch("/api/workouts", {
       method: "POST",
+
       body: JSON.stringify({
-        title,
-        desc,
-        rating,
-        type,
-        zone,
-        duration,
-        owner,
+        title: bodyTitle,
+        description: bodyDescription,
+        rating: bodyRating,
+        workout_type: bodyWorkoutType,
+        body_zone: bodyBZone,
+        duration: bodyDuration,
+        owner_id: bodyOwnerID,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (response.ok) {
-      document.location.replace("/createworkout");
+      console.log("the request went through");
+      document.location.replace("/api/users/workouts");
     } else {
-      alert("Failed to create project");
+      console.log("the request failed");
     }
   }
 };
-document.querySelector("").addEventListener("submit", newFormHandler);
+submitButton.addEventListener("click", newFormHandler);
