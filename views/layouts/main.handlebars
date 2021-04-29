@@ -21,14 +21,14 @@
       <header id="header">
         <div>
           <nav class="nav">
-            <a href="/">Home</a>
-            <a href="/workouts">myWORKOUTS</a>
             <!-- Conditionally rendering login or logout links -->
-            {{#if logged_in}}
+            {{!-- {{#if logged_in}} --}}
+            <a href="/">Home</a>
+            <a href="/api/users/workouts">myWORKOUTS</a>
             <a id="logout" href="/">Logout</a>
-            {{else}}
+            {{!-- {{else}} --}}
             <a href="/login">Login</a>
-            {{/if}}
+            {{!-- {{/if}} --}}
           </nav>
         </div>
         <h1 class="title">myWORKOUTS</h1>
