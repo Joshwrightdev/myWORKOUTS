@@ -9,6 +9,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
     crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+  <link href="https://api.fontshare.com/css?f[]=ranade@400&f[]=clash-display@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
@@ -16,24 +22,29 @@
 
 
 <body>
-  <div class="container">
-    <div class="flex-column justify-space-around">
+  <div class="container-fluid">
+    <div>
       <header id="header">
-        <div>
-          <nav class="nav">
+        <div class="navcontainer">
+          <nav>
             <!-- Conditionally rendering login or logout links -->
-            {{!-- {{#if loggedIn}} --}}
-            <a href="/">Home</a>
-            <a href="/api/users/workouts">My Workouts</a>
-            <a href="/">Browse Workouts</a>
-            <a href="/">Create Workout</a>
-            <a id="logout" href="/">Logout</a>
+            {{!-- {{#if logged_in}} --}}
+
+
+            <a class="btn" href="/"><i class="fas fa-home"></i>Home</a>
+            <a class="btn" href="/api/users/workouts"><i class="fas fa-running"></i>
+
+              myWORKOUTS</a>
+            <a class="btn" id="logout" href="/"><i class="fab fa-angellist"></i>
+              Logout</a>
             {{!-- {{else}} --}}
-            <a href="/login">Login</a>
+            <a class="btn" href="/login"><i class="fas fa-sign-in-alt"></i>
+              Login</i>
+              </span></a>
             {{!-- {{/if}} --}}
           </nav>
         </div>
-        <h1 class="title">myWORKOUTS</h1>
+        <h2>myWORKOUTS</h2>
       </header>
       <main>
         <!-- Rendering the sub layout -->
