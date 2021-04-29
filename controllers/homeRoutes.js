@@ -23,9 +23,7 @@ module.exports = router;
 // TODO: Add the signup route here (So when you go to localhost:3001/signup it renders the signup)
 
 // TODO: Add the workouts page here (So when you go to localhost:3001/workouts it renders the workouts page)
-router.get("/workouts", (req, res) => {
-  res.render("my-workouts", {});
-});
+
 module.exports = router;
 // TODO: Add the workouts page here (So when you go to localhost:3001/workouts it renders the workouts page)
 router.get("/", (req, res) => {
