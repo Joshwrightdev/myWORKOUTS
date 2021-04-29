@@ -1,0 +1,26 @@
+* {
+  /* font-family: 'Ranade', sans-serif; */
+  font-family: "Clash Display", sans-serif;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  position: absolute;
+}
+
+main {
+  display: flex;
+}
+
+.navcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.btn{
+    padding-bottom: 25px ;
+    font-size: 20px;
+}
