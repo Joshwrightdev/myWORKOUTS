@@ -57,4 +57,13 @@ router.post("/logout", (req, res) => {
   }
 });
 
+router.get("/workouts", (req, res) => {
+  try {
+    res.render("my-workouts", {
+    })
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
