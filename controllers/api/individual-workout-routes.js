@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Workout } = require('../../models');
+const { User, Workout } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -38,9 +38,9 @@ router.post('/', withAuth, async (req, res) => {
 
 
 
-  router.get('/workouts/:id', async (req, res) => {
+  router.get('/:id', async (req, res) => {
     try {
-      console.log("test")
+      
       const workoutData = await Workout.findByPk(req.params.id, {
         include: [
           {
@@ -49,9 +49,10 @@ router.post('/', withAuth, async (req, res) => {
           },
         ],
       });
-  
+     
+    
       const workout = workoutData.get({ plain: true });
-  
+     
       res.render('individual-workout', {
         ...workout,
         logged_in: req.session.logged_in
