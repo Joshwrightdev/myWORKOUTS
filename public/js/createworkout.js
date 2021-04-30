@@ -5,7 +5,7 @@ const rating = document.getElementById("workout-rating");
 const workout_type = document.getElementById("workout-type");
 const body_zone = document.getElementById("body-zone");
 const duration = document.getElementById("workout-duration");
-const owner_id = document.getElementById("owner-id");
+// const owner_id = document.getElementById("owner-id");
 const submitButton = document.getElementById("submit-button");
 
 const newFormHandler = async (event) => {
@@ -16,15 +16,15 @@ const newFormHandler = async (event) => {
   const bodyWorkoutType = workout_type.value;
   const bodyBZone = body_zone.value;
   const bodyDuration = duration.value;
-  const bodyOwnerID = owner_id.value;
+  // const bodyOwnerID = owner_id.value;
   if (
     title.value &&
     description.value &&
     rating.value &&
     workout_type.value &&
     body_zone.value &&
-    duration.value &&
-    owner_id.value
+    duration.value
+    // owner_id.value
   ) {
     const response = await fetch("/api/workouts", {
       method: "POST",
@@ -36,7 +36,7 @@ const newFormHandler = async (event) => {
         workout_type: bodyWorkoutType,
         body_zone: bodyBZone,
         duration: bodyDuration,
-        owner_id: bodyOwnerID,
+        // owner_id: bodyOwnerID,
       }),
       headers: {
         "Content-Type": "application/json",
