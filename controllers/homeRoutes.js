@@ -4,7 +4,6 @@ const withAuth = require("../utils/auth");
 
 // TODO: Add the homepage route here (So when you go to localhost:3001/ it renders the homepage)
 router.get("/", (req, res) => {
-
   res.render("homepage", {
     loggedIn: req.session.logged_in,
   });
@@ -20,11 +19,10 @@ router.get("/login", (req, res) => {
 
 router.get("/allworkouts", async (req, res) => {
   try {
-
     if (req.session.logged_in !== true) {
-      res.redirect('/login');
+      res.redirect("/login");
       return;
-    };
+    }
 
     const workoutData = await Workout.findAll();
 
@@ -34,7 +32,7 @@ router.get("/allworkouts", async (req, res) => {
     res.render("all-workouts", {
       workouts,
       loggedIn: req.session.logged_in,
-    })
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -42,12 +40,11 @@ router.get("/allworkouts", async (req, res) => {
 
 // TODO: Add the workouts page here (So when you go to localhost:3001/workouts it renders the workouts page)
 router.get("/createworkout", (req, res) => {
-
   if (req.session.logged_in !== true) {
-    res.redirect('/login');
+    res.redirect("/login");
     return;
-  };
-  
+  }
+
   res.render("createworkout", {
     loggedIn: req.session.logged_in,
   });

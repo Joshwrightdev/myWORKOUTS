@@ -1,6 +1,7 @@
 * {
   /* font-family: 'Ranade', sans-serif; */
   font-family: "Clash Display", sans-serif;
+  margin: 0px;
 }
 
 nav {
@@ -12,6 +13,7 @@ nav {
 
 main {
   display: flex;
+  flex-direction: column;
 }
 
 .navcontainer {
@@ -20,7 +22,31 @@ main {
   justify-content: flex-end;
 }
 
-.navbtn{
-    padding-bottom: 25px ;
-    font-size: 20px;
+.navbtn {
+  padding-bottom: 25px;
+  font-size: 20px;
 }
+
+
+.login-signup-container {
+
+  position: relative;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginsignchildcontainer{
+  background-color: greenyellow;
+  padding: 25px ;
+  border-radius: 30px;
+  
+}
+
+
+/* iframe{
+  width: 100vw;
+  height: 100vh;
+} */
+
