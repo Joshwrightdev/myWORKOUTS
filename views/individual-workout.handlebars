@@ -1,37 +1,62 @@
-<div class="col-md-6">
-    <h3>WORKOUT OVERVIEW</h3>
 
-    <div class="form my-workout-form">
+<body style="background-color:#f2f2f2;">
+<br>
+<br>
+<div class="col-md-6">
+    <h2 style="color: #626262">WORKOUT OVERVIEW</h2>
+    <hr>
+
+    <br>
+
+
+    <div  class="form my-workout-form">
       <div class="form-group">
-        <label for="workout-title">{{title}}</label>
+        <label style="font-size: 25px;text-decoration:underline" for="workout-title">{{title}}</label>
       </div>
+      
      
       <div class="form-group workout-description">
-        <label for="workout-description">Description:</label>
+        <label style="text-decoration: underline;color:gray" for="workout-description">Description:</label>
+        <br>
         <span class="workout-description">{{description}}</span>
       </div>
 
     <div class="form-group workout-rating">
-        <label for="workout-rating">Rating:</label>
+        <label style="text-decoration: underline;color:gray" for="workout-rating">Rating:</label>
+        <br>
         <span class="workout-rating">{{rating}}</span>
       </div>
 
        <div class="form-group workout-type">
-        <label for="workout-type">Type of Workout:</label>
+        <label style="text-decoration: underline;color:gray" for="workout-type">Workout Type:</label>
+        <br>
         <span class="workout-type">{{workout_type}}</span>
       </div>
 
        <div class="form-group workout-zone">
-        <label for="workout-zone">Body Zone:</label>
+        <label style="text-decoration: underline;color:gray" for="workout-zone">Body Zone:</label>
+        <br>
         <span class="workout-zone">{{body_zone}}</span>
       </div>
 
       <div class="form-group workout-duration">
-        <label for="workout-duration">Duration:</label>
+        <label style="text-decoration: underline;color:gray" for="workout-duration">Duration:</label>
+        <br>
         <span class="workout-duration">{{duration}}</span>
       </div>
+      <hr>
 
-    <button onclick="window.location.href='/api/users/workouts/'">Back</button>
+    <button style="background-color: greenyellow;"  onclick="window.location.href='/api/users/workouts/'">Back</button>
+    
+    <br>
+    <br>
+    <button style="border-color: red;" type="button" class="btn btn-light" id="pdf-print">Delete</button>
+    <br>
+    <br>
+    <button style="border-color: blue;" type="button" class="btn btn-light" id="pdf-print">PDF</button>
+
         
     </div>
   </div>
+
+  </body>
