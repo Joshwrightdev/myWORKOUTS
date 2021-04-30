@@ -4,26 +4,49 @@ const withAuth = require("../utils/auth");
 
 // TODO: Add the homepage route here (So when you go to localhost:3001/ it renders the homepage)
 router.get("/", (req, res) => {
-  res.render("homepage", {});
+  res.render("homepage", {
+    loggedIn: req.session.logged_in,
+  });
 });
 // TODO: Add the login route here (So when you go to localhost:3001/login it renders the login)
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect("/");
     return;
   }
   res.render("login");
 });
 
-module.exports = router;
+router.get("/allworkouts", async (req, res) => {
+  try {
+    if (req.session.logged_in !== true) {
+      res.redirect("/login");
+      return;
+    }
 
-// TODO: Add the signup route here (So when you go to localhost:3001/signup it renders the signup)
+    const workoutData = await Workout.findAll();
 
-// TODO: Add the workouts page here (So when you go to localhost:3001/workouts it renders the workouts page)
+    // console.log(req.session.logged_in);
+    const workouts = workoutData.map((workout) => workout.get({ plain: true }));
 
-module.exports = router;
+    res.render("all-workouts", {
+      workouts,
+      loggedIn: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 // TODO: Add the workouts page here (So when you go to localhost:3001/workouts it renders the workouts page)
 router.get("/createworkout", (req, res) => {
-  res.render("createworkout", {});
+  if (req.session.logged_in !== true) {
+    res.redirect("/login");
+    return;
+  }
+
+  res.render("createworkout", {
+    loggedIn: req.session.logged_in,
+  });
 });
 module.exports = router;
