@@ -59,9 +59,10 @@
                 var type = $.trim($("#workout-type").val());
                 var zone = $.trim($("#body-zone").val());
                 var duration = $.trim($("#workout-duration").val());
-
-
+   
                 var doc = new jsPDF();
+                doc.setFont("helvetica");
+                doc.setFontType("bold");
                 doc.text("TITLE", 10, 10)
                 doc.text(title, 10, 20)
                 doc.text("DESCRIPTION", 10, 30)
