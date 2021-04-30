@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Workout } = require("../../models");
+const { User, Workout } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async (req, res) => {
@@ -36,9 +36,9 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/workouts/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    console.log("test");
+    
     const workoutData = await Workout.findByPk(req.params.id, {
       include: [
         {
