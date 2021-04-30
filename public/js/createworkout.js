@@ -50,4 +50,5 @@ const newFormHandler = async (event) => {
     }
   }
 };
+
 submitButton.addEventListener("click", newFormHandler);

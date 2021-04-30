@@ -1,6 +1,6 @@
 <div class='container'>
 
-    <div>
+    <div id="pdf">
         <h2>Create Workout</h2>
         <form>
             <div class="form-group w-75">
@@ -34,15 +34,58 @@
         <textarea class="form-control" id="owner-id" rows="3"></textarea>
     </div> --}}
 
-    </form>
+    <div>
+        <button type="button" class="btn btn-light" id="submit-button">Submit</button>
+        <button type="button" class="btn btn-light" id="pdf-print">PDF</button>
+
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <!-- Below script will print div with id pdf to a pdf file using jspdf -->
+
+    {{!-- workout-title --}}
+    {{!-- workout-description --}}
+    {{!-- ocument.getElementById("workout-title"); --}}
+    {{!-- const description = document.getElementById("workout-description"); --}}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#pdf-print').click(function () {
+                var title = $.trim($("#workout-title").val());
+                var description = $.trim($("#workout-description").val());
+                var rating = $.trim($("#workout-rating").val());
+                var type = $.trim($("#workout-type").val());
+                var zone = $.trim($("#body-zone").val());
+                var duration = $.trim($("#workout-duration").val());
+
+                var doc = new jsPDF();
+                doc.setFont("helvetica");
+                doc.setFontType("bold");
+                doc.text("TITLE", 10, 10)
+                doc.text(title, 10, 20)
+                doc.text("DESCRIPTION", 10, 30)
+                doc.text(description, 10, 40)
+                doc.text("RATING (OUT OF TEN))", 10, 50)
+                doc.text(rating + "/10", 10, 60)
+                doc.text("WORKOUT TYPE", 10, 70)
+                doc.text(type, 10, 80)
+                doc.text("ZONE", 10, 90)
+                doc.text(zone, 10, 100)
+                doc.text("DURATION:", 10, 110)
+                doc.text(duration + ' MINUTES', 10, 120)
+
+
+
+                doc.save(title + '.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+
+
+
+
+            })
+
+
+        });
+    </script>
+    <script src="./js/createworkout.js"></script>
 </div>
-
-<div>
-    <button type="button" class="btn btn-light" id="submit-button">Submit</button>
-</div>
-
-
-
-</div>
-
-<script src="/js/createworkout.js"> </script>
