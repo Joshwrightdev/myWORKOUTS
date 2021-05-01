@@ -5,7 +5,7 @@ const rating = document.getElementById("workout-rating");
 const workout_type = document.getElementById("workout-type");
 const body_zone = document.getElementById("body-zone");
 const duration = document.getElementById("workout-duration");
-const selectedDropdown = document.getElementById("selected-dropdown");
+const selectedDropdown = document.getElementById("workout-type");
 // const owner_id = document.getElementById("owner-id");
 const submitButton = document.getElementById("submit-button");
 
@@ -19,7 +19,7 @@ const newFormHandler = async (event) => {
   const bodyBZone = body_zone.value;
   const bodyDuration = duration.value;
   // const bodyOwnerID = owner_id.value;
-  console.log(bodyWorkoutType);
+
   if (
     title.value &&
     description.value &&
@@ -56,6 +56,3 @@ const newFormHandler = async (event) => {
 };
 
 submitButton.addEventListener("click", newFormHandler);
-workout_type.addEventListener("click", function (event) {
-  selectedDropdown.value.textcontent;
-});
