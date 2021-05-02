@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 
   const user = userData.get({ plain: true });
 
-  console.log(user);
+
   res.render("homepage", {
     loggedIn: req.session.logged_in,
     user
