@@ -11,7 +11,7 @@ const submitButton = document.getElementById("submit-button");
 
 const newFormHandler = async (event) => {
   event.preventDefault();
-  console.log("hello again");
+
   const bodyTitle = title.value;
   const bodyDescription = description.value;
   const bodyRating = rating.value;
@@ -19,7 +19,7 @@ const newFormHandler = async (event) => {
   const bodyBZone = body_zone.value;
   const bodyDuration = duration.value;
   // const bodyOwnerID = owner_id.value;
-
+  console.log("hello again");
   if (
     title.value &&
     description.value &&
@@ -42,6 +42,7 @@ const newFormHandler = async (event) => {
         duration: bodyDuration,
         // owner_id: bodyOwnerID,
       }),
+
       headers: {
         "Content-Type": "application/json",
       },
@@ -53,6 +54,12 @@ const newFormHandler = async (event) => {
       console.log("the request failed");
     }
   }
+  console.log(bodyTitle);
+  console.log(bodyDescription);
+  console.log(bodyRating);
+  console.log(bodyWorkoutType);
+  console.log(bodyBZone);
+  console.log(bodyDuration);
 };
 
 submitButton.addEventListener("click", newFormHandler);
