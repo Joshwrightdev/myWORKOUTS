@@ -36,7 +36,7 @@
                 {{!-- </div> --}}
             <p id="selected-dropdown"> </p>
 
-            <div class="form-group w-75">
+            {{!-- <div class="form-group w-75">
                 <div>
                     <label for="exampleFormControlTextarea1">Body Zone</label>
                 </div>
@@ -72,7 +72,20 @@
                     <input class="form-check-input" type="checkbox" id="chest" value="Chest" />
                     <label class="form-check-label" for="inlineCheckbox2">Chest</label>
                     <option value="Chest"></option>
-                </div>
+                </div> --}}
+                <form action="/action_page.php">
+                    <label for="cars">Choose a muscle group:</label>
+                    <select name="cars" id="body-zone" multiple>
+                        <option value="Back">Back</option>
+                        <option value="Legs">Legs</option>
+                        <option value="Full Body">Full Body</option>
+                        <option value="Arms">Arms</option>
+                        <option value="Chest">Chest</option>
+                    </select>
+
+                    <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+                </form>
+
 
 
             </div>
