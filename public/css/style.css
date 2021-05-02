@@ -66,6 +66,22 @@ color: greenyellow;
 border: greenyellow;
 }
 
+.home-main {
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+}
+
+.home-main h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+.home-main p {
+  text-align: center;
+  font-size: 16px;
+}
+
 /* iframe{
   width: 100vw;
   height: 100vh;
