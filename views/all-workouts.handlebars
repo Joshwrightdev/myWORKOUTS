@@ -4,7 +4,7 @@
     </div>
     {{#each workouts as |workout|}}
     <div class="my-workout-card">
-        <a class="workout-title">{{workout.title}}</a>
+        <a class="workout-title" href="/api/workouts/{{workout.id}}">{{workout.title}}</a>
         <p>{{workout.description}}</p>
         <p>{{workout.rating}}</p>
         <p>{{workout.body_zone}}</p>
