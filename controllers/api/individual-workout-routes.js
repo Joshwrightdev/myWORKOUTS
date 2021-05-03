@@ -21,7 +21,6 @@ router.delete("/:id", withAuth, async (req, res) => {
     const workoutData = await Workout.destroy({
       where: {
         id: req.params.id,
-        // user_id: req.session.user_id,
       },
     });
 
@@ -51,12 +50,18 @@ router.get("/:id", async (req, res) => {
     const workout = workoutData.get({ plain: true });
 
     res.render("individual-workout", {
-      ...workout,
+      ...workout, 
       loggedIn: req.session.logged_in,
     });
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 module.exports = router;
+
+
+
+
+

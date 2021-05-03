@@ -2,8 +2,8 @@
 
 const deleteButton = document.getElementById("delete-btn");
 const workoutId = document.getElementById("workout-id");
-console.log(workoutId.value);
 
+console.log(workoutId.value);
 
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -16,9 +16,13 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/api/users/workouts');
     } else {
-      alert('Failed to delete workout');
+      alert('Workout could not delete!');
     }
   }
 };
 
 deleteButton.addEventListener("click", newFormHandler);
+
+
+
+
