@@ -22,30 +22,37 @@
 
 
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <div>
       <header id="header">
         <div class="navcontainer">
           <nav>
             <!-- Conditionally rendering login or logout links -->
             {{#if loggedIn}}
-            <a class="navbtn" href="/"><i class="fas fa-home"></i>Home</a>
+            <a class="navbtn" href="/"><i class="fas fa-home"></i>
+              <div class="hideinmobile">Home</div>
+            </a>
             <a class="navbtn" href="/api/users/workouts"><i class="fas fa-user"></i>
-              myWORKOUTS</a>
+              <div class="hideinmobile">myWORKOUTS</div>
+            </a>
             <a class="navbtn" href="/allworkouts"><i class="fas fa-running"></i>
-              allWORKOUTS</a>
+              <div class="hideinmobile">allWORKOUTS</div>
+            </a>
             <a class="navbtn" href="/createworkout"><i class="fas fa-dumbbell"></i>
-              createWORKOUT</a>
+              <div class="hideinmobile">createWORKOUT</div>
+            </a>
             <a class="navbtn" id="logout" href="/"><i class="fab fa-angellist"></i>
-              Logout</a>
+              <div class="hideinmobile">Logout</div>
+            </a>
             {{else}}
             <a class="navbtn" href="/login"><i class="fas fa-sign-in-alt"></i>
-              Login</i>
-              </span></a>
+              <div class="hideinmobile">Login</div></i>
+              </span>
+            </a>
             {{/if}}
           </nav>
         </div>
-        <h2 style="background-color: gray;color:whitesmoke;width:110%;padding: 50px;margin-left:-2%;">myWORKOUTS</h2>
+          <h2 style="background-color: gray;color:whitesmoke;width:100%;">myWORKOUTS</h2>
       </header>
       <main>
         <!-- Rendering the sub layout -->
